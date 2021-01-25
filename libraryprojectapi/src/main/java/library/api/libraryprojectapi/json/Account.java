@@ -1,4 +1,4 @@
-package library.api.libraryprojectapi.entities;
+package library.api.libraryprojectapi.json;
 
 public class Account {
     private String username;
