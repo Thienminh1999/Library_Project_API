@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import library.api.libraryprojectapi.entities.Account;
+import library.api.libraryprojectapi.json.Account;
 import library.api.libraryprojectapi.entities.User;
 import library.api.libraryprojectapi.services.templates.IUserService;
 

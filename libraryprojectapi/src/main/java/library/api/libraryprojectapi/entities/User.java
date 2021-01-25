@@ -4,9 +4,11 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.Id;
+
 import javax.persistence.Table;
-import javax.xml.crypto.Data;
+
 
 @Entity
 @Table(name = "TBLUSER")
@@ -24,7 +26,7 @@ public class User {
     private String phoneNumber;
     @Column(name = "ADDRESS", length = 50, nullable = true)
     private String address;
-    @Column(name = "ROLEID", length = 10, nullable = false)
+    @Column(name = "ROLEID", length = 10, nullable = true)
     private String roleID;
     @Column(name = "CREATEDDATE", length = 10, nullable = false)
     private Date createDate;
@@ -34,9 +36,13 @@ public class User {
     private Date modifiedDate;
     @Column(name = "MODIFIEDBY", length = 50, nullable = true)
     private String modifiedBy;
+    @Column(name = "ENABLED", length = 50, nullable = true)
+    private String enabled;
+    @Column(name = "MAXRENTNUMBER", length = 10, nullable = true)
+    private String maxRentNumber;
 
     public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
-            String roleID) {
+    String roleID) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
@@ -46,7 +52,22 @@ public class User {
         this.roleID = roleID;
     }
 
-    public User() {
+    public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
+            String roleID, Date createDate, String createBy, Date modifiedDate, String modifiedBy, String enabled,
+            String maxRentNumber) {
+        this.userID = userID;
+        this.userName = userName;
+        this.password = password;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.roleID = roleID;
+        this.createDate = createDate;
+        this.createBy = createBy;
+        this.modifiedDate = modifiedDate;
+        this.modifiedBy = modifiedBy;
+        this.enabled = enabled;
+        this.maxRentNumber = maxRentNumber;
     }
 
     public String getUserID() {
@@ -136,6 +157,11 @@ public class User {
     public void setModifiedBy(String modifiedBy) {
         this.modifiedBy = modifiedBy;
     }
+
+    public User() {
+    }
+
+    
     
 
     
