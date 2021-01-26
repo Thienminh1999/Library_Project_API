@@ -36,5 +36,8 @@ public class BookSubCategory {
         this.subCategoryID = subCategoryID;
     }
 
+    public BookSubCategory() {
+    }
+
     
 }

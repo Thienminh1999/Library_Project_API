@@ -19,12 +19,15 @@ public class Rent {
     private Date returnDate;
     @Column(name = "USERID", length = 10, nullable = false)
     private String userID;
+    @Column(name = "STATUSID", length = 10, nullable = false)
+    private String StatusID;
 
-    public Rent(String rentID, Date rentDate, Date returnDate, String userID) {
+    public Rent(String rentID, Date rentDate, Date returnDate, String userID, String statusID) {
         this.rentID = rentID;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
         this.userID = userID;
+        StatusID = statusID;
     }
 
     public String getRentID() {
@@ -58,6 +61,16 @@ public class Rent {
     public void setUserID(String userID) {
         this.userID = userID;
     }
+
+    public String getStatusID() {
+        return StatusID;
+    }
+
+    public void setStatusID(String statusID) {
+        StatusID = statusID;
+    }
+
+    
 
     
 }

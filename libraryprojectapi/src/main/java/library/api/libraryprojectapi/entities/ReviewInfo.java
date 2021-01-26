@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TBLREVIEW")
-public class Review {
+public class ReviewInfo {
     @Id
 	@Column(name = "REVIEWID", length = 10, nullable = false)
     private String reviewID;
@@ -18,7 +18,7 @@ public class Review {
     @Column(name = "CONTENT", length = 10, nullable = false)
     private String content;
 
-    public Review(String reviewID, String userID, String bookID, String content) {
+    public ReviewInfo(String reviewID, String userID, String bookID, String content) {
         this.reviewID = reviewID;
         this.userID = userID;
         this.bookID = bookID;
@@ -55,6 +55,9 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public ReviewInfo() {
     }
 
     
