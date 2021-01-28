@@ -11,4 +11,5 @@ public interface SubCategoryRepository extends JpaRepository<SubCategory, String
     @Query(value = "select sc.CategoryID, sc.SubCategoryID, sc.SubCategoryName from tblBookSubCategory bs, tblSubCategory sc where bs.BookID = ?1", nativeQuery = true)
     List<SubCategory> findAllSubCatagoryByIdBook(String id);
 
+    List<SubCategory> findAllSubCategoryByCategoryID(String CategoryID);
 }

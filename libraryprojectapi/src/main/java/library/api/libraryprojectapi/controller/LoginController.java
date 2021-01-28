@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import library.api.libraryprojectapi.json.Account;
+import library.api.libraryprojectapi.Utils.CommonUtil;
 import library.api.libraryprojectapi.entities.User;
 import library.api.libraryprojectapi.services.templates.IUserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,7 @@ public class LoginController {
     @Autowired
     private JavaMailSender javaMailSender;
     
+    //login sử dụng username và password trong database
     @PostMapping(value = "/checkLogin")
     public ResponseEntity checkLogin(@RequestBody Account account, HttpServletResponse response) {
        
@@ -43,13 +45,13 @@ public class LoginController {
 		return ResponseEntity.ok().body(result);
     }
 
+    //login sử dụng email để gửi password cho user
     @GetMapping(value="/login")
     public String getPwLogin(@RequestBody String email) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email);
         msg.setSubject("Password Login Library Application");
-        Random random = new Random(6);
-        String passwordNumber = random.nextInt(999999)+"";
+        String passwordNumber = CommonUtil.getRandomPassoword();
         msg.setText("Your password: " + passwordNumber);
         javaMailSender.send(msg);
         return passwordNumber;

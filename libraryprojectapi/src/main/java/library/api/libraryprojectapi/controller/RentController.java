@@ -15,6 +15,7 @@ public class RentController {
     @Autowired
     private IRentService rentService;
 
+    //mượn danh sách sách bởi 1 user 
     @PostMapping("/rent")
     public void rentBook(@RequestBody UserRentBook rentBook){
         rentService.rentBooks(rentBook.getUser(), rentBook.getListBook());

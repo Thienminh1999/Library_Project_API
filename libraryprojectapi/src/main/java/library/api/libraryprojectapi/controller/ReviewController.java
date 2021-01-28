@@ -58,6 +58,7 @@ public class ReviewController {
       return ReviewService.updateReview(review);
     }
 
+    //lấy danh sách top 5 bài review gần nhất
     @GetMapping("/reviewrecent")
     public List<ReviewInfo> getReviewRecent(){
       return ReviewService.getReviewRecent();
