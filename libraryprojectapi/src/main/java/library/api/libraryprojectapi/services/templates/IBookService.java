@@ -10,4 +10,10 @@ public interface IBookService {
     public Book createBook(Book newBook);
     public List<BookInfo> getAllBook();
     public List<SubCategory> findAllSubCatagoryByIdBook(String idBook);
+    public BookInfo findBookById(String id);
+    public BookInfo updateBook(BookInfo bookinfo);
+    public void deleteBook(String BookId);
+    public Book getBookById(String bookid);
+    public List<Book> findBooksByName(String bookName);
+    public List<Book> findBookBySubCate(String subCateID);
 }

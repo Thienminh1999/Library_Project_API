@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name = "TBLBOOK")
 public class BookInfo {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "BOOKID", length = 10, nullable = false)
     private String bookID;
     @Column(name = "BOOKNAME", length = 50, nullable = false)
