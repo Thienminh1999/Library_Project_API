@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import library.api.libraryprojectapi.entities.BookInfo;
-import library.api.libraryprojectapi.json.Book;
+
 
 
 public interface BookRepository extends JpaRepository<BookInfo, String> {

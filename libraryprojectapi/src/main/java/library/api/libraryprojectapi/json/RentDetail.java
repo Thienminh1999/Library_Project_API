@@ -2,30 +2,38 @@ package library.api.libraryprojectapi.json;
 
 import java.util.List;
 
-public class RentDetail {
-    private String rentDetailID;
-    private List<Book> listBook;
+import library.api.libraryprojectapi.entities.BookInfo;
+import library.api.libraryprojectapi.entities.Rent;
 
-    public RentDetail(String rentDetailID, List<Book> listBook) {
-        this.rentDetailID = rentDetailID;
+public class RentDetail {
+    private Rent rent;
+    private List<BookInfo> listBook;
+
+    public RentDetail() {
+    }
+
+    public RentDetail(Rent rent, List<BookInfo> listBook) {
+        this.rent = rent;
         this.listBook = listBook;
     }
 
-    public String getRentDetailID() {
-        return rentDetailID;
+    public Rent getRent() {
+        return rent;
     }
 
-    public void setRentDetailID(String rentDetailID) {
-        this.rentDetailID = rentDetailID;
+    public void setRent(Rent rent) {
+        this.rent = rent;
     }
 
-    public List<Book> getListBook() {
+    public List<BookInfo> getListBook() {
         return listBook;
     }
 
-    public void setListBook(List<Book> listBook) {
+    public void setListBook(List<BookInfo> listBook) {
         this.listBook = listBook;
     }
+
+    
     
     
 }

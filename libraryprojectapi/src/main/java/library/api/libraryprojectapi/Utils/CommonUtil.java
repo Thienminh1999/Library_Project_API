@@ -11,4 +11,13 @@ public class CommonUtil {
         }
         return password;
     }
+
+    public static String getRandomUserID(){
+        Random random = new Random();
+        String userID = "";
+        for(int i = 0; i<9; i++){
+            userID = userID + random.nextInt(9);
+        }
+        return userID;
+    }
 }

@@ -1,10 +1,11 @@
 package library.api.libraryprojectapi.services;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Calendar;
+
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -15,6 +16,8 @@ import library.api.libraryprojectapi.entities.BookInfo;
 import library.api.libraryprojectapi.entities.Rent;
 import library.api.libraryprojectapi.entities.RentDetailInfo;
 import library.api.libraryprojectapi.entities.User;
+import library.api.libraryprojectapi.json.RentDetail;
+import library.api.libraryprojectapi.repositories.BookRepository;
 import library.api.libraryprojectapi.repositories.RentDetailRepository;
 import library.api.libraryprojectapi.repositories.RentRepository;
 import library.api.libraryprojectapi.services.templates.IRentService;
@@ -27,6 +30,9 @@ public class RentServiceImp implements IRentService {
 
     @Autowired
     private RentDetailRepository rentDetaiRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
 
     public void rentBooks(User user, List<BookInfo> listBookInfo) {
 
@@ -45,5 +51,23 @@ public class RentServiceImp implements IRentService {
             rentDetaiRepository.save(new RentDetailInfo(uuid, bookInfo.getBookID()));
         }
 
+    }
+
+    public List<RentDetail> getListRentDetailByUserID(String userID){
+        List<Rent> listRent = rentRepository.findAllByUserID(userID);
+        List<RentDetail> listRentDetail = new ArrayList<>();
+        for (Rent rent : listRent) {
+            RentDetail rentDetail = new RentDetail();
+            rentDetail.setRent(rent);
+            List<String> listBookID = rentDetaiRepository.findAllBookIDByRentID(rent.getRentID());
+            List<BookInfo> listBook = new ArrayList<>();
+            for (String bookID : listBookID) {
+                BookInfo bookinfo = bookRepository.findById(bookID).get();
+                listBook.add(bookinfo);
+            }
+            rentDetail.setListBook(listBook);
+            listRentDetail.add(rentDetail);
+        }
+        return listRentDetail;
     }
 }

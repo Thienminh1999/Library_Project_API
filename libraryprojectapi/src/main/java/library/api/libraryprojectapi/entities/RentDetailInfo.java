@@ -34,6 +34,9 @@ public class RentDetailInfo {
     public void setBookID(String bookID) {
         this.bookID = bookID;
     }
+
+    public RentDetailInfo() {
+    }
     
     
 }

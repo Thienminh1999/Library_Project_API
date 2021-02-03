@@ -70,6 +70,9 @@ public class Rent {
         StatusID = statusID;
     }
 
+    public Rent() {
+    }
+
     
 
     

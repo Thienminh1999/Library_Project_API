@@ -9,16 +9,15 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "TBLUSER")
 public class User {
     @Id
-	@Column(name = "USERID", length = 10, nullable = false)
+    @Column(name = "USERID", length = 10, nullable = false)
     private String userID;
-    @Column(name = "USERNAME", length = 50, nullable = false)
+    @Column(name = "USERNAME", length = 50, nullable = true)
     private String userName;
-    @Column(name = "PASSWORD", length = 50, nullable = false)
+    @Column(name = "PASSWORD", length = 50, nullable = true)
     private String password;
     @Column(name = "FULLNAME", length = 50, nullable = false)
     private String fullName;
@@ -30,7 +29,7 @@ public class User {
     private String roleID;
     @Column(name = "CREATEDDATE", length = 10, nullable = false)
     private Date createDate;
-    @Column(name = "CREATEDBY", length = 50, nullable = false)
+    @Column(name = "CREATEDBY", length = 50, nullable = true)
     private String createBy;
     @Column(name = "MODIFIEDDATE", length = 10, nullable = true)
     private Date modifiedDate;
@@ -40,21 +39,35 @@ public class User {
     private String enabled;
     @Column(name = "MAXRENTNUMBER", length = 10, nullable = true)
     private String maxRentNumber;
+    @Column(name = "EMAIL", length = 10, nullable = true)
+    private String email;
 
-    public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
-    String roleID) {
+    public User(String userID, String username, String password, String fullName, String phoneNumber, String address,
+            String roleID) {
         this.userID = userID;
-        this.userName = userName;
         this.password = password;
         this.fullName = fullName;
+        this.userName = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.roleID = roleID;
     }
 
+    public User(String userID, String fullName, String phoneNumber, String address, String roleID, String email,
+            Date createDate, String enabled) {
+        this.userID = userID;
+        this.fullName = fullName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.roleID = roleID;
+        this.email = email;
+        this.createDate = createDate;
+        this.enabled = enabled;
+    }
+
     public User(String userID, String userName, String password, String fullName, String phoneNumber, String address,
             String roleID, Date createDate, String createBy, Date modifiedDate, String modifiedBy, String enabled,
-            String maxRentNumber) {
+            String maxRentNumber, String email) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
@@ -68,6 +81,7 @@ public class User {
         this.modifiedBy = modifiedBy;
         this.enabled = enabled;
         this.maxRentNumber = maxRentNumber;
+        this.email = email;
     }
 
     public String getUserID() {
@@ -161,8 +175,28 @@ public class User {
     public User() {
     }
 
-    
-    
+    public String getEnabled() {
+        return enabled;
+    }
 
-    
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getMaxRentNumber() {
+        return maxRentNumber;
+    }
+
+    public void setMaxRentNumber(String maxRentNumber) {
+        this.maxRentNumber = maxRentNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
