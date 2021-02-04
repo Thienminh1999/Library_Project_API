@@ -46,7 +46,7 @@ public class LoginController {
     }
 
     //login sử dụng email để gửi password cho user
-    @GetMapping(value="/login")
+    @PostMapping(value="/login")
     public String getPwLogin(@RequestBody String email) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(email);
