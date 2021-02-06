@@ -1,10 +1,7 @@
 package library.api.libraryprojectapi.models;
 
-import java.sql.Date;
-
 public class UserCreateModel {
     private String userID;
-    private Date createDate;
     private String fullName;
     private String phoneNumber;
     private String address;
@@ -13,10 +10,8 @@ public class UserCreateModel {
     public UserCreateModel() {
     }
 
-    public UserCreateModel(String userID, Date createDate, String fullName, String phoneNumber, String address,
-            String email) {
+    public UserCreateModel(String userID, String fullName, String phoneNumber, String address, String email) {
         this.userID = userID;
-        this.createDate = createDate;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -29,14 +24,6 @@ public class UserCreateModel {
 
     public void setUserID(String userID) {
         this.userID = userID;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
     }
 
     public String getFullName() {
@@ -71,5 +58,4 @@ public class UserCreateModel {
         this.email = email;
     }
 
-    
 }

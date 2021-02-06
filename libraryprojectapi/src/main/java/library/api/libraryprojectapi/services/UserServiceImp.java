@@ -1,6 +1,7 @@
 package library.api.libraryprojectapi.services;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,9 @@ public class UserServiceImp implements IUserService {
   }
 
   public User createUser(UserCreateModel userModel){
-    User user = new User(userModel.getUserID(), userModel.getFullName(), userModel.getPhoneNumber(), userModel.getAddress(), "002", userModel.getEmail(), userModel.getCreateDate(), "True");
+    long millis = System.currentTimeMillis();
+    Date createdDate = new Date(millis);
+    User user = new User(userModel.getUserID(), userModel.getFullName(), userModel.getPhoneNumber(), userModel.getAddress(), "002", userModel.getEmail(), createdDate, "True");
     return UserRepository.save(user);
   }
 
