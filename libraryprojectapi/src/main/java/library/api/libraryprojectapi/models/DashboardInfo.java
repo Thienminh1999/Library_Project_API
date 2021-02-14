@@ -2,7 +2,9 @@ package library.api.libraryprojectapi.models;
 
 import java.util.List;
 
+import library.api.libraryprojectapi.entities.ReviewInfo;
 import library.api.libraryprojectapi.entities.User;
+
 
 public class DashboardInfo {
     private int memberQuantity;
@@ -11,18 +13,21 @@ public class DashboardInfo {
     private int rentingQuantity;
 
     private List<User> listUserRecent;
+    private List<ReviewInfo> listRecentReview;
 
     public DashboardInfo() {
     }
 
     public DashboardInfo(int memberQuantity, int bookQuantity, int reviewQuantity, int rentingQuantity,
-            List<User> listUserRecent) {
+            List<User> listUserRecent, List<ReviewInfo> listRecentReview) {
         this.memberQuantity = memberQuantity;
         this.bookQuantity = bookQuantity;
         this.reviewQuantity = reviewQuantity;
         this.rentingQuantity = rentingQuantity;
         this.listUserRecent = listUserRecent;
+        this.listRecentReview = listRecentReview;
     }
+
 
     public int getMemberQuantity() {
         return memberQuantity;
@@ -64,5 +69,14 @@ public class DashboardInfo {
         this.listUserRecent = listUserRecent;
     }
 
+    public List<ReviewInfo> getListRecentReview() {
+        return listRecentReview;
+    }
+
+    public void setListRecentReview(List<ReviewInfo> listRecentReview) {
+        this.listRecentReview = listRecentReview;
+    }
+
+    
     
 }

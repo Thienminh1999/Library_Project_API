@@ -16,4 +16,5 @@ public interface IUserService {
     public User createUser(UserCreateModel userModel);
     public List<User> getUserRentRecent();
     public DashboardInfo getCommonInfo();
+    public Boolean checkEmailExist(String email);
 }

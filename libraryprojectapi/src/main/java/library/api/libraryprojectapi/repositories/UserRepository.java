@@ -26,4 +26,6 @@ public interface UserRepository extends JpaRepository<User, String>  {
 
     @Query(value = "select count(RentID) from tblRent", nativeQuery = true)
     public int countRenting();
+
+    public User findByEmail(String email);
 }

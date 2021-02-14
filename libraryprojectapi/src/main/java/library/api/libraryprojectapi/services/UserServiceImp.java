@@ -8,10 +8,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import library.api.libraryprojectapi.entities.ReviewInfo;
 import library.api.libraryprojectapi.entities.User;
 
 import library.api.libraryprojectapi.models.DashboardInfo;
 import library.api.libraryprojectapi.models.UserCreateModel;
+import library.api.libraryprojectapi.repositories.ReviewRepository;
 import library.api.libraryprojectapi.repositories.UserRepository;
 import library.api.libraryprojectapi.services.templates.IUserService;
 
@@ -22,6 +24,9 @@ public class UserServiceImp implements IUserService {
 
   @Autowired
   private UserRepository UserRepository;
+
+  @Autowired
+  private ReviewRepository ReviewRepository;
 
   @Override
   public User createOrUpdate(User User) {
@@ -74,8 +79,17 @@ public class UserServiceImp implements IUserService {
     int rentingQuantity = UserRepository.countRenting();
 
     List<User> listUser = getUserRentRecent();
-    DashboardInfo infos = new DashboardInfo(memberQuantity, bookQuantity, reviewQuantity, rentingQuantity, listUser);
+    List<ReviewInfo> listReview = ReviewRepository.get5ReviewRecent();
+    DashboardInfo infos = new DashboardInfo(memberQuantity, bookQuantity, reviewQuantity, rentingQuantity, listUser, listReview);
     return infos;
+  }
+
+  public Boolean checkEmailExist(String email){
+    User user = UserRepository.findByEmail(email);
+    if(user == null){
+      return false;
+    }
+    return true;
   }
 
   

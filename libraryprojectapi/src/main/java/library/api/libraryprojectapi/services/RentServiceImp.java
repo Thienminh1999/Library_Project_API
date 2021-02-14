@@ -16,10 +16,12 @@ import library.api.libraryprojectapi.entities.BookInfo;
 import library.api.libraryprojectapi.entities.Rent;
 import library.api.libraryprojectapi.entities.RentDetailInfo;
 import library.api.libraryprojectapi.entities.User;
+import library.api.libraryprojectapi.json.Book;
 import library.api.libraryprojectapi.json.RentDetail;
 import library.api.libraryprojectapi.repositories.BookRepository;
 import library.api.libraryprojectapi.repositories.RentDetailRepository;
 import library.api.libraryprojectapi.repositories.RentRepository;
+import library.api.libraryprojectapi.repositories.UserRepository;
 import library.api.libraryprojectapi.services.templates.IRentService;
 
 @Repository
@@ -33,6 +35,9 @@ public class RentServiceImp implements IRentService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public void rentBooks(User user, List<BookInfo> listBookInfo) {
 
@@ -69,5 +74,15 @@ public class RentServiceImp implements IRentService {
             listRentDetail.add(rentDetail);
         }
         return listRentDetail;
+    }
+
+    public Object getQrCodeObj(String qrCode){
+        String[] arr = qrCode.split("-");
+        if(arr[0].equals("US")){
+            User user = userRepository.findById(qrCode).get();
+            return user;
+        }
+        BookInfo bookinfo = bookRepository.findById(qrCode).get();
+        return bookinfo;
     }
 }

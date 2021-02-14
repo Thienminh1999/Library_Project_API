@@ -48,13 +48,20 @@ public class LoginController {
     //login sử dụng email để gửi password cho user
     @PostMapping(value="/login")
     public String getPwLogin(@RequestBody String email) {
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(email);
-        msg.setSubject("Password Login Library Application");
+        System.out.println("email: " + email);
+        boolean existed = userService.checkEmailExist(email);
         String passwordNumber = CommonUtil.getRandomPassoword();
-        msg.setText("Your password: " + passwordNumber);
-        javaMailSender.send(msg);
+        if(existed == true){
+            return "existed";
+        }else{
+            SimpleMailMessage msg = new SimpleMailMessage();
+            msg.setTo(email);
+            msg.setSubject("Password Login Library Application");
+            msg.setText("Your password: " + passwordNumber);
+            javaMailSender.send(msg);
+        }
         return passwordNumber;
     }
+    
     
 }
