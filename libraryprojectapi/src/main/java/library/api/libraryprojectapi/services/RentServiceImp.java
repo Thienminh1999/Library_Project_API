@@ -47,13 +47,14 @@ public class RentServiceImp implements IRentService {
 
         String uuid = UUID.randomUUID().toString();
 
-        String statusID = "R";
+        String statusID = "RENDING";
 
         Rent rent = new Rent(uuid, rentDate, Date.valueOf(returnDate), user.getUserID(), statusID);
         rentRepository.save(rent);
-
+        System.out.println("list book: " + listBookInfo.size());
         for (BookInfo bookInfo : listBookInfo) {
-            rentDetaiRepository.save(new RentDetailInfo(uuid, bookInfo.getBookID()));
+            System.out.println("book:" + bookInfo.getBookName());
+            rentDetaiRepository.saveAndFlush(new RentDetailInfo(uuid, bookInfo.getBookID()));
         }
 
     }

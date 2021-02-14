@@ -10,4 +10,6 @@ import library.api.libraryprojectapi.entities.RentDetailInfo;
 public interface RentDetailRepository extends JpaRepository<RentDetailInfo, String> {
     @Query(value = "select BookID from tblRentDetail where RentID = ?1", nativeQuery = true)
     public List<String> findAllBookIDByRentID(String RentID);
+
+    
 }
