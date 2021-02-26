@@ -51,4 +51,9 @@ public class RentController {
         return this.obj;
     }
 
+    @PostMapping(value = "/qrclear")
+    public void cleanQR(){
+        this.obj = null;
+    }
+
 }
