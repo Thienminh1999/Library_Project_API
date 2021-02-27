@@ -42,6 +42,11 @@ public class UserController {
         return userService.getCommonInfo();
     }
 
+    @GetMapping("/getuser")
+    public User getUser(@RequestBody String email){
+        return userService.getUserByEmail(email);
+    }
+
     
 
 }

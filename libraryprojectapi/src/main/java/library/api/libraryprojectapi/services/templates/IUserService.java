@@ -17,4 +17,5 @@ public interface IUserService {
     public List<User> getUserRentRecent();
     public DashboardInfo getCommonInfo();
     public Boolean checkEmailExist(String email);
+    public User getUserByEmail(String email);
 }

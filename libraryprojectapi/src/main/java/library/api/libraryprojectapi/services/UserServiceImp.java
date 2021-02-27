@@ -92,6 +92,10 @@ public class UserServiceImp implements IUserService {
     return true;
   }
 
+  public User getUserByEmail(String email){
+    User user = UserRepository.findByEmail(email);
+    return user;
+  }
   
   
 }
