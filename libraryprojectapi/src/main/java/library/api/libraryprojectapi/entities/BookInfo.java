@@ -160,6 +160,14 @@ public class BookInfo {
     public BookInfo() {
     }
 
+    public String getBookImg() {
+        return BookImg;
+    }
+
+    public void setBookImg(String bookImg) {
+        BookImg = bookImg;
+    }
+
     
     
 }
