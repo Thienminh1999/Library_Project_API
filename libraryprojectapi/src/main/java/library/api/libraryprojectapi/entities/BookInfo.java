@@ -35,10 +35,12 @@ public class BookInfo {
     private String createdBy;
     @Column(name = "MODIFIEDBY", length = 50, nullable = true)
     private String modifiedBy;
+    @Column(name = "BOOKIMG", length = 100, nullable = true)
+    private String BookImg;
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
             String description, String bookPosition, Date createdDate, Date modifiedDate, String createdBy,
-            String modifiedBy) {
+            String modifiedBy, String bookImg) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -50,10 +52,11 @@ public class BookInfo {
         this.modifiedDate = modifiedDate;
         this.createdBy = createdBy;
         this.modifiedBy = modifiedBy;
+        this.BookImg = bookImg;
     }
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
-            String description, String bookPosition) {
+            String description, String bookPosition, String bookImg) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -61,6 +64,7 @@ public class BookInfo {
         this.quantity = quantity;
         this.description = description;
         this.bookPosition = bookPosition;
+        this.BookImg = bookImg;
     }
 
     
