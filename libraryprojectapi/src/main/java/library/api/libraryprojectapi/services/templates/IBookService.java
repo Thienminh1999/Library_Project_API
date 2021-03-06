@@ -16,4 +16,5 @@ public interface IBookService {
     public Book getBookById(String bookid);
     public List<Book> findBooksByName(String bookName);
     public List<Book> findBookBySubCate(String subCateID);
+    public List<BookInfo> get10BookRecently();
 }

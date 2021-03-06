@@ -39,6 +39,11 @@ public class RentServiceImp implements IRentService {
     @Autowired
     private UserRepository userRepository;
 
+    private User user = null;
+    private BookInfo bookinfo = null;
+
+    
+
     public void rentBooks(User user, List<BookInfo> listBookInfo) {
 
         long millis = System.currentTimeMillis();
@@ -81,9 +86,30 @@ public class RentServiceImp implements IRentService {
         String[] arr = qrCode.split("-");
         if(arr[0].equals("US")){
             User user = userRepository.findById(qrCode).get();
+            this.user = user;
             return user;
         }
         BookInfo bookinfo = bookRepository.findById(qrCode).get();
+        this.bookinfo = bookinfo;
         return bookinfo;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public BookInfo getBookinfo() {
+        return bookinfo;
+    }
+
+    public Boolean clearBookInfo(){
+        this.bookinfo = null;
+        return true;
+    }
+
+    
+
+    
+
+    
 }

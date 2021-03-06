@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import library.api.libraryprojectapi.entities.BookInfo;
+import library.api.libraryprojectapi.entities.User;
 import library.api.libraryprojectapi.json.RentDetail;
 import library.api.libraryprojectapi.json.UserRentBook;
 import library.api.libraryprojectapi.services.templates.IRentService;
@@ -24,6 +26,7 @@ public class RentController {
     private IRentService rentService;
 
     private Object obj = null;
+    
     // mượn danh sách sách bởi 1 user
 
     // @PostMapping(value = "/rent")
@@ -46,14 +49,19 @@ public class RentController {
         return obj;
     }
 
-    @GetMapping(value = "/getqrinfo")
-    public Object qrcode() {
-        return this.obj;
+    @GetMapping(value = "/getqruserinfo")
+    public User qrusercode() {
+        return rentService.getUser();
     }
 
-    @PostMapping(value = "/qrclear")
-    public void cleanQR(){
-        this.obj = null;
+    @GetMapping(value = "/getqrbookinfo")
+    public BookInfo qrbookcode() {
+        return rentService.getBookinfo();
+    }
+
+    @GetMapping(value = "/qrclearbook")
+    public boolean cleanQR(){
+        return rentService.clearBookInfo();
     }
 
 }

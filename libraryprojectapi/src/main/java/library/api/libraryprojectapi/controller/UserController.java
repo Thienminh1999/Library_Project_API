@@ -42,6 +42,11 @@ public class UserController {
         return userService.getCommonInfo();
     }
 
+    @GetMapping("/getuserrecent")
+    public List<User> getuserRecently(){
+        return userService.getUserRentRecent();
+    }
+
     @PostMapping("/getuser")
     public User getUser(@RequestBody String email){
         return userService.getUserByEmail(email);

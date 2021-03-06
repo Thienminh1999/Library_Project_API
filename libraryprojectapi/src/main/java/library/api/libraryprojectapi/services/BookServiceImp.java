@@ -83,4 +83,9 @@ public class BookServiceImp implements IBookService {
         }
         return listBook;
     }
+
+    public List<BookInfo> get10BookRecently(){
+        List<BookInfo> listBook = BookRepository.findTop10BookRecent();
+        return listBook;
+    }
 }

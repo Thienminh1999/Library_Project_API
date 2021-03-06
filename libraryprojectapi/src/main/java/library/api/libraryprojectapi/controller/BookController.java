@@ -83,5 +83,10 @@ public class BookController {
     return BookService.findBookBySubCate(subCateID);
   }
 
+  @GetMapping("/bookrencent")
+  public List<BookInfo> getTop10BookRecent(){
+    return BookService.get10BookRecently();
+  }
+
 
 }

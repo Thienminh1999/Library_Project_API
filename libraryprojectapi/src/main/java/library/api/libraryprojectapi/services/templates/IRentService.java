@@ -11,4 +11,7 @@ public interface IRentService {
     public void rentBooks(User user, List<BookInfo> listBookInfo);
     public List<RentDetail> getListRentDetailByUserID(String userID);
     public Object getQrCodeObj(String qrCode);
+    public User getUser();
+    public BookInfo getBookinfo();
+    public Boolean clearBookInfo();
 }
