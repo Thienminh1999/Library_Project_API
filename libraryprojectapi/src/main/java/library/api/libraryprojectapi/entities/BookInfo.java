@@ -37,10 +37,12 @@ public class BookInfo {
     private String modifiedBy;
     @Column(name = "BOOKIMG", length = 100, nullable = true)
     private String BookImg;
+    @Column(name = "CATEGORYID", length = 10, nullable = true)
+    private String CategoryID;
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
             String description, String bookPosition, Date createdDate, Date modifiedDate, String createdBy,
-            String modifiedBy, String bookImg) {
+            String modifiedBy, String bookImg, String categoryID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -53,10 +55,11 @@ public class BookInfo {
         this.createdBy = createdBy;
         this.modifiedBy = modifiedBy;
         this.BookImg = bookImg;
+        this.CategoryID = categoryID;
     }
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
-            String description, String bookPosition, String bookImg) {
+            String description, String bookPosition, String bookImg, String categoryID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -65,6 +68,7 @@ public class BookInfo {
         this.description = description;
         this.bookPosition = bookPosition;
         this.BookImg = bookImg;
+        this.CategoryID = categoryID;
     }
 
     
@@ -166,6 +170,14 @@ public class BookInfo {
 
     public void setBookImg(String bookImg) {
         BookImg = bookImg;
+    }
+
+    public String getCategoryID() {
+        return CategoryID;
+    }
+
+    public void setCategoryID(String categoryID) {
+        CategoryID = categoryID;
     }
 
     

@@ -16,13 +16,12 @@ public class SubCategory {
     private String subCategoryID;
     @Column(name = "SUBCATEGORYNAME", length = 50, nullable = false)
     private String subCategoryName;
-    @Column(name = "CATEGORYID", length = 50, nullable = false)
-    private String categoryID;
+   
 
-    public SubCategory(String subCategoryID, String subCategoryName, String categoryID) {
+    public SubCategory(String subCategoryID, String subCategoryName) {
         this.subCategoryID = subCategoryID;
         this.subCategoryName = subCategoryName;
-        this.categoryID = categoryID;
+        
     }
 
     public String getSubCategoryID() {
@@ -40,15 +39,6 @@ public class SubCategory {
     public void setSubCategoryName(String subCategoryName) {
         this.subCategoryName = subCategoryName;
     }
-
-    public String getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(String categoryID) {
-        this.categoryID = categoryID;
-    }
-
     public SubCategory() {
     }
 

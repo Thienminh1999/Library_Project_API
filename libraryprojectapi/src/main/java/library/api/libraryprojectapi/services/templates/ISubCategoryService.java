@@ -5,5 +5,5 @@ import java.util.List;
 import library.api.libraryprojectapi.entities.SubCategory;
 
 public interface ISubCategoryService {
-    public List<SubCategory> getSubCateByCateID(String cateID);
+    //public List<SubCategory> getSubCateByCateID(String cateID);
 }

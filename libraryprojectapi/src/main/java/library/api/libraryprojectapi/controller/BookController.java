@@ -41,6 +41,7 @@ public class BookController {
   public List<Book> getBooks() {
     List<BookInfo> listBookInfo = BookService.getAllBook();
     List<Book> listBook = new ArrayList<>();
+    System.out.println("hello \n");
     for (BookInfo bookInfo : listBookInfo) {
       List<SubCategory> listSubCate = BookService.findAllSubCatagoryByIdBook(bookInfo.getBookID());
       listBook.add(new Book(bookInfo, listSubCate));
