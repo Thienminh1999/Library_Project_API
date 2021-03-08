@@ -31,8 +31,9 @@ public class RentController {
 
     // @PostMapping(value = "/rent")
     @RequestMapping(value = "/rent" ,method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void rentBook(@RequestBody UserRentBook rentBook) {
+    public UserRentBook rentBook(@RequestBody UserRentBook rentBook) {
         rentService.rentBooks(rentBook.getUser(), rentBook.getListBook());
+        return rentBook;
     }
 
     // get danh sách lịch sử mượn sách của 1 user
