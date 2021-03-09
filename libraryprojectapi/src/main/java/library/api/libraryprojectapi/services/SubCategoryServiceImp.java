@@ -14,7 +14,8 @@ public class SubCategoryServiceImp implements ISubCategoryService {
     @Autowired
     private SubCategoryRepository SubCategoryRepository;
 
-    // public List<SubCategory> getSubCateByCateID(String cateID){
-    //     return SubCategoryRepository.findAllSubCategoryByCategoryID(cateID);
-    // }
+    @Override
+    public List<SubCategory> getSubCate() {
+        return SubCategoryRepository.findAll();
+    }
 }

@@ -12,20 +12,15 @@ public class DashboardInfo {
     private int reviewQuantity;
     private int rentingQuantity;
 
-    private List<User> listUserRecent;
-    private List<ReviewInfo> listRecentReview;
-
     public DashboardInfo() {
     }
 
-    public DashboardInfo(int memberQuantity, int bookQuantity, int reviewQuantity, int rentingQuantity,
-            List<User> listUserRecent, List<ReviewInfo> listRecentReview) {
+    public DashboardInfo(int memberQuantity, int bookQuantity, int reviewQuantity, int rentingQuantity) {
         this.memberQuantity = memberQuantity;
         this.bookQuantity = bookQuantity;
         this.reviewQuantity = reviewQuantity;
         this.rentingQuantity = rentingQuantity;
-        this.listUserRecent = listUserRecent;
-        this.listRecentReview = listRecentReview;
+      
     }
 
 
@@ -61,21 +56,6 @@ public class DashboardInfo {
         this.rentingQuantity = rentingQuantity;
     }
 
-    public List<User> getListUserRecent() {
-        return listUserRecent;
-    }
-
-    public void setListUserRecent(List<User> listUserRecent) {
-        this.listUserRecent = listUserRecent;
-    }
-
-    public List<ReviewInfo> getListRecentReview() {
-        return listRecentReview;
-    }
-
-    public void setListRecentReview(List<ReviewInfo> listRecentReview) {
-        this.listRecentReview = listRecentReview;
-    }
 
     
     

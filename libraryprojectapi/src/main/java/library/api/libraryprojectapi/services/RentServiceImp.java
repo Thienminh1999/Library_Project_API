@@ -107,6 +107,11 @@ public class RentServiceImp implements IRentService {
         return true;
     }
 
+    public Boolean clearUserInfo(){
+        this.user = null;
+        return true;
+    }
+
     
 
     

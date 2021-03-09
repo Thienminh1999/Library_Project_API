@@ -61,8 +61,14 @@ public class RentController {
     }
 
     @GetMapping(value = "/qrclearbook")
-    public boolean cleanQR(){
+    public boolean cleanQRBook(){
         return rentService.clearBookInfo();
     }
+
+    @GetMapping(value = "/qrclearuser")
+    public boolean cleanQRUser(){
+        return rentService.clearUserInfo();
+    }
+
 
 }

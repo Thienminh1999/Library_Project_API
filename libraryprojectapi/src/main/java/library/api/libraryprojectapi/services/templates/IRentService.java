@@ -14,4 +14,5 @@ public interface IRentService {
     public User getUser();
     public BookInfo getBookinfo();
     public Boolean clearBookInfo();
+    public Boolean clearUserInfo();
 }

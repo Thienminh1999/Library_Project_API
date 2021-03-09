@@ -78,9 +78,9 @@ public class UserServiceImp implements IUserService {
     int reviewQuantity = UserRepository.countReview();
     int rentingQuantity = UserRepository.countRenting();
 
-    List<User> listUser = getUserRentRecent();
-    List<ReviewInfo> listReview = ReviewRepository.get5ReviewRecent();
-    DashboardInfo infos = new DashboardInfo(memberQuantity, bookQuantity, reviewQuantity, rentingQuantity, listUser, listReview);
+    // List<User> listUser = getUserRentRecent();
+    // List<ReviewInfo> listReview = ReviewRepository.get5ReviewRecent();
+    DashboardInfo infos = new DashboardInfo(memberQuantity, bookQuantity, reviewQuantity, rentingQuantity);
     return infos;
   }
 

@@ -28,9 +28,11 @@ public class CategoryController {
         return CategoryService.getAllCategory();
     }
 
-    //get danh sách tất cả các subCategory thuộc về 1 Category thông qua CategoryID
-    // @GetMapping(value = "/subcatebycate")
-    // public List<SubCategory> getSubCateByCateID(@RequestBody String CateID){
-    //     return SubCategoryService.getSubCateByCateID(CateID);
-    // }
+    //get danh sách tất cả các subCategory 
+    @GetMapping(value = "/subcates")
+    public List<SubCategory> getSubCate(){
+        return SubCategoryService.getSubCate();
+    }
+
+
 }
