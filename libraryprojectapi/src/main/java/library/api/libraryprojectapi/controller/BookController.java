@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import library.api.libraryprojectapi.entities.Author;
 import library.api.libraryprojectapi.entities.BookInfo;
 import library.api.libraryprojectapi.entities.SubCategory;
 import library.api.libraryprojectapi.json.Book;
@@ -29,6 +30,8 @@ public class BookController {
 
   @Autowired
   private ISubCategoryService SubCategoryService;
+
+  
 
   //thêm 1 cuốn sách mới vào database
   @PostMapping("/createBook")
@@ -87,6 +90,11 @@ public class BookController {
   @GetMapping("/bookrencent")
   public List<BookInfo> getTop10BookRecent(){
     return BookService.get10BookRecently();
+  }
+
+  @GetMapping("/authorbybookid")
+  public List<Author> getAuthorByBookID(@RequestBody String bookID){
+    return BookService.getAuthorByBookID(bookID);
   }
 
 

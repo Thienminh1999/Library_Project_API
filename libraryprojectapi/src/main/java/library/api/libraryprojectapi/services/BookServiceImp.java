@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import library.api.libraryprojectapi.entities.Author;
 import library.api.libraryprojectapi.entities.BookInfo;
 import library.api.libraryprojectapi.entities.BookSubCategory;
 import library.api.libraryprojectapi.entities.SubCategory;
 import library.api.libraryprojectapi.json.Book;
+import library.api.libraryprojectapi.repositories.AuthorRepository;
 import library.api.libraryprojectapi.repositories.BookRepository;
 import library.api.libraryprojectapi.repositories.BookSubCategoryRepository;
+import library.api.libraryprojectapi.repositories.ComposeRepository;
 import library.api.libraryprojectapi.repositories.SubCategoryRepository;
 import library.api.libraryprojectapi.services.templates.IBookService;
 
@@ -26,6 +29,12 @@ public class BookServiceImp implements IBookService {
 
     @Autowired
     private SubCategoryRepository SubCategoryRepository;
+
+    @Autowired
+    private AuthorRepository AuthorRepository;
+
+    @Autowired
+    private ComposeRepository ComposeRepository;
 
     public Book createBook(Book newBook) {
         BookRepository.save(newBook.getBook());
@@ -87,5 +96,16 @@ public class BookServiceImp implements IBookService {
     public List<BookInfo> get10BookRecently(){
         List<BookInfo> listBook = BookRepository.findTop10BookRecent();
         return listBook;
+    }
+
+    public List<Author> getAuthorByBookID(String id){
+        List<String> listAuthorID = ComposeRepository.getAuthorIDByBookID(id);
+        System.out.println("authorID");
+        List<Author> listAuthor = new ArrayList<>();
+        for(int i=0; i<listAuthorID.size(); i++){
+            Author author = AuthorRepository.findById(listAuthorID.get(i)).get();
+            listAuthor.add(author);
+        }
+        return listAuthor;
     }
 }

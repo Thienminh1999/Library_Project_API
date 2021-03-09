@@ -2,6 +2,7 @@ package library.api.libraryprojectapi.services.templates;
 
 import java.util.List;
 
+import library.api.libraryprojectapi.entities.Author;
 import library.api.libraryprojectapi.entities.BookInfo;
 import library.api.libraryprojectapi.entities.SubCategory;
 import library.api.libraryprojectapi.json.Book;
@@ -17,4 +18,5 @@ public interface IBookService {
     public List<Book> findBooksByName(String bookName);
     public List<Book> findBookBySubCate(String subCateID);
     public List<BookInfo> get10BookRecently();
+    public List<Author> getAuthorByBookID(String id);
 }

@@ -43,7 +43,7 @@ public class User {
     private String email;
 
     public User(String userID, String username, String password, String fullName, String phoneNumber, String address,
-            String roleID) {
+            String roleID, String email) {
         this.userID = userID;
         this.password = password;
         this.fullName = fullName;
@@ -51,6 +51,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.roleID = roleID;
+        this.email = email;
     }
 
     public User(String userID, String fullName, String phoneNumber, String address, String roleID, String email,

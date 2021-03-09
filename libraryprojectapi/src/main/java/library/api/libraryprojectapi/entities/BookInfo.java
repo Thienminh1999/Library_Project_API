@@ -27,11 +27,11 @@ public class BookInfo {
     private String description;
     @Column(name = "BOOKPOSITION", length = 10, nullable = true)
     private String bookPosition;
-    @Column(name = "CREATEDDATE", length = 10, nullable = false)
+    @Column(name = "CREATEDDATE", length = 10, nullable = true)
     private Date createdDate;
     @Column(name = "MODIFIEDDATE", length = 10, nullable = true)
     private Date modifiedDate;
-    @Column(name = "CREATEDBY", length = 50, nullable = false)
+    @Column(name = "CREATEDBY", length = 50, nullable = true)
     private String createdBy;
     @Column(name = "MODIFIEDBY", length = 50, nullable = true)
     private String modifiedBy;
