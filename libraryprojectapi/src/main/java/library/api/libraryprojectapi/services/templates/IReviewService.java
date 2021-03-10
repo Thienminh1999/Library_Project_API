@@ -13,4 +13,6 @@ public interface IReviewService {
     public ReviewInfo updateReview(Review review);
     public ReviewInfo getReviewByReviewID(String reviewID);
     public List<ReviewInfo> getReviewRecent();
+    public List<Review> getAllReviewMoreInfo();
+   
 }

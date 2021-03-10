@@ -20,14 +20,26 @@ public class ReviewInfo {
     @Column(name = "CONTENT", length = 10, nullable = false)
     private String content;
     @Column(name = "CREATEWHEN", length = 10, nullable = false)
-    private Date CreateWhen;
+    private Date createWhen;
+    @Column(name = "MODIFIEDBY", length = 10, nullable = true)
+    private String modifiedBy;
+
+    public ReviewInfo(String reviewID, String userID, String bookID, String content, Date createWhen, String modifiedBy) {
+        this.reviewID = reviewID;
+        this.userID = userID;
+        this.bookID = bookID;
+        this.content = content;
+        this.createWhen = createWhen;
+        this.modifiedBy = modifiedBy;
+    }
 
     public ReviewInfo(String reviewID, String userID, String bookID, String content, Date createWhen) {
         this.reviewID = reviewID;
         this.userID = userID;
         this.bookID = bookID;
         this.content = content;
-        this.CreateWhen = createWhen;
+        this.createWhen = createWhen;
+       
     }
 
     public String getReviewID() {
@@ -66,11 +78,19 @@ public class ReviewInfo {
     }
 
     public Date getCreateWhen() {
-        return CreateWhen;
+        return createWhen;
     }
 
     public void setCreateWhen(Date createWhen) {
-        CreateWhen = createWhen;
+        createWhen = createWhen;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 
     

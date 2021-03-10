@@ -64,6 +64,11 @@ public class ReviewController {
       return ReviewService.getReviewRecent();
     }
 
+    @GetMapping("/morereviewinfo")
+    public List<Review> getReviewMoreInfo(){
+      return ReviewService.getAllReviewMoreInfo();
+    }
+
   
 
 }
