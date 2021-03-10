@@ -76,6 +76,10 @@ public class BookController {
     return BookService.getBookById(bookID);
   }
 
+  @PostMapping("/bookbyid")
+  public Book getABookById(@RequestBody String bookID) {
+    return BookService.getBookById(bookID);
+  }
   //tìm kiếm những cuốn sách theo tên 
   @GetMapping("/book")
   public List<Book> getBookByName(@RequestBody String bookName) {
@@ -97,5 +101,6 @@ public class BookController {
     return BookService.getAuthorByBookID(bookID);
   }
 
+  
 
 }

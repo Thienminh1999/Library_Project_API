@@ -1,19 +1,23 @@
 package library.api.libraryprojectapi.json;
 
+import java.sql.Date;
+
 public class Review {
     private String reviewID;
     private String userID;
     private String bookID;
     private String content;
+    private Date createWhen;
 
     public Review() {
     }
 
-    public Review(String reviewID, String userID, String bookID, String content) {
+    public Review(String reviewID, String userID, String bookID, String content, Date createWhen) {
         this.reviewID = reviewID;
         this.userID = userID;
         this.bookID = bookID;
         this.content = content;
+        this.createWhen = createWhen;
     }
 
     public String getReviewID() {
@@ -46,5 +50,13 @@ public class Review {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Date getCreateWhen() {
+        return createWhen;
+    }
+
+    public void setCreateWhen(Date createWhen) {
+        this.createWhen = createWhen;
     }
 }

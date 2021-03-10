@@ -25,7 +25,7 @@ public class ReviewServiceImp implements IReviewService {
     }
 
     public ReviewInfo addReview(Review review){
-        ReviewInfo reviewinfo = new ReviewInfo(review.getReviewID(), review.getUserID(), review.getBookID(), review.getContent());
+        ReviewInfo reviewinfo = new ReviewInfo(review.getReviewID(), review.getUserID(), review.getBookID(), review.getContent(), review.getCreateWhen());
         return ReviewRepository.save(reviewinfo);
     }
 

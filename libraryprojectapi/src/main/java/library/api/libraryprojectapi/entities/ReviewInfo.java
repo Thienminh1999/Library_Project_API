@@ -1,5 +1,7 @@
 package library.api.libraryprojectapi.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,12 +19,15 @@ public class ReviewInfo {
     private String bookID;
     @Column(name = "CONTENT", length = 10, nullable = false)
     private String content;
+    @Column(name = "CREATEWHEN", length = 10, nullable = false)
+    private Date CreateWhen;
 
-    public ReviewInfo(String reviewID, String userID, String bookID, String content) {
+    public ReviewInfo(String reviewID, String userID, String bookID, String content, Date createWhen) {
         this.reviewID = reviewID;
         this.userID = userID;
         this.bookID = bookID;
         this.content = content;
+        this.CreateWhen = createWhen;
     }
 
     public String getReviewID() {
@@ -58,6 +63,14 @@ public class ReviewInfo {
     }
 
     public ReviewInfo() {
+    }
+
+    public Date getCreateWhen() {
+        return CreateWhen;
+    }
+
+    public void setCreateWhen(Date createWhen) {
+        CreateWhen = createWhen;
     }
 
     

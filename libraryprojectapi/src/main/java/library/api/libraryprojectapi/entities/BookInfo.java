@@ -2,7 +2,6 @@ package library.api.libraryprojectapi.entities;
 
 import java.sql.Date;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -13,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "TBLBOOK")
 public class BookInfo {
     @Id
-	@Column(name = "BOOKID", length = 10, nullable = false)
+    @Column(name = "BOOKID", length = 10, nullable = false)
     private String bookID;
     @Column(name = "BOOKNAME", length = 50, nullable = false)
     private String bookName;
@@ -69,9 +68,8 @@ public class BookInfo {
         this.bookPosition = bookPosition;
         this.BookImg = bookImg;
         this.CategoryID = categoryID;
+       
     }
-
-    
 
     public String getBookID() {
         return bookID;
@@ -180,6 +178,4 @@ public class BookInfo {
         CategoryID = categoryID;
     }
 
-    
-    
 }
