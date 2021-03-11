@@ -16,4 +16,6 @@ public interface ReviewRepository extends JpaRepository<ReviewInfo, String>  {
 
     // @Query(value = "select r.BookID,r.Content, r.CreateWhen, r.ModifiedBy, r.ReviewID, r.UserID, u.FullName, b.BookName from tblReview r, tblUser u, tblBook b where r.BookID = b.BookID and r.UserID = u.UserID", nativeQuery = true)
     // public List<Review> getAllReview();
+
+    public List<ReviewInfo> findByBookID(String bookID);
 }

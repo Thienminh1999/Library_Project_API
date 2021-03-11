@@ -6,4 +6,5 @@ import library.api.libraryprojectapi.entities.Category;
 
 public interface ICategoryService {
     public List<Category> getAllCategory();
+    public Category getCategoryById(String id);
 }

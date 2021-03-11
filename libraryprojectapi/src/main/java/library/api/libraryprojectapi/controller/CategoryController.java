@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,8 @@ import library.api.libraryprojectapi.entities.Category;
 import library.api.libraryprojectapi.entities.SubCategory;
 import library.api.libraryprojectapi.services.templates.ICategoryService;
 import library.api.libraryprojectapi.services.templates.ISubCategoryService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/")
@@ -33,6 +36,12 @@ public class CategoryController {
     public List<SubCategory> getSubCate(){
         return SubCategoryService.getSubCate();
     }
+
+    @PostMapping(value="/maincate")
+    public Category getMainCateById(@RequestBody String id) {
+        return CategoryService.getCategoryById(id);
+    }
+    
 
     
 

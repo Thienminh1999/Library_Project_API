@@ -68,4 +68,16 @@ public class ReviewServiceImp implements IReviewService {
     public List<ReviewInfo> getReviewRecent(){
         return ReviewRepository.get5ReviewRecent();
     }
+
+    public List<Review> getReviewByBookID(String bookID){
+        List<ReviewInfo> listReviewInfo = ReviewRepository.findByBookID(bookID);
+        List<Review> listReview = new ArrayList<>();
+        for(int i=0; i<listReviewInfo.size(); i++){
+            User user = UserRepository.findById(listReviewInfo.get(i).getUserID()).get();
+            BookInfo bookinfo = BookRepository.findById(listReviewInfo.get(i).getBookID()).get();
+            Review review = new Review(listReviewInfo.get(i), user.getFullName(), bookinfo.getBookName());
+            listReview.add(review);
+        }
+        return listReview;
+    }
 }

@@ -14,5 +14,6 @@ public interface IReviewService {
     public ReviewInfo getReviewByReviewID(String reviewID);
     public List<ReviewInfo> getReviewRecent();
     public List<Review> getAllReviewMoreInfo();
+    public List<Review> getReviewByBookID(String bookID);
    
 }

@@ -69,6 +69,11 @@ public class ReviewController {
       return ReviewService.getAllReviewMoreInfo();
     }
 
+    @PostMapping("/reviewbybookid")
+    public List<Review> getReviewMoreInfo(@RequestBody String bookID ){
+      return ReviewService.getReviewByBookID(bookID);
+    }
+
   
 
 }
