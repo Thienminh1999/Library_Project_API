@@ -1,5 +1,6 @@
 package library.api.libraryprojectapi.services;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +48,9 @@ public class ReviewServiceImp implements IReviewService {
     }
 
     public ReviewInfo addReview(Review review){
-        ReviewInfo reviewinfo = new ReviewInfo(review.getReviewID(), review.getUserID(), review.getBookID(), review.getContent(), review.getCreateWhen());
+        long millis = System.currentTimeMillis();
+        Date createdDate = new Date(millis);
+        ReviewInfo reviewinfo = new ReviewInfo(review.getReviewID(), review.getUserID(), review.getBookID(), review.getContent(), createdDate);
         return ReviewRepository.save(reviewinfo);
     }
 
