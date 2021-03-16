@@ -38,10 +38,14 @@ public class BookInfo {
     private String BookImg;
     @Column(name = "CATEGORYID", length = 10, nullable = true)
     private String CategoryID;
+    @Column(name = "ENABLE", length = 10, nullable = true)
+    private Boolean Enable;
+    @Column(name = "AUTHORID", length = 10, nullable = true)
+    private String authorID;
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
             String description, String bookPosition, Date createdDate, Date modifiedDate, String createdBy,
-            String modifiedBy, String bookImg, String categoryID) {
+            String modifiedBy, String bookImg, String categoryID, Boolean enable, String authorID) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -55,10 +59,12 @@ public class BookInfo {
         this.modifiedBy = modifiedBy;
         this.BookImg = bookImg;
         this.CategoryID = categoryID;
+        this.Enable = enable;
+        this.authorID = authorID;
     }
 
     public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
-            String description, String bookPosition, String bookImg, String categoryID) {
+            String description, String bookPosition, String bookImg, String categoryID, Boolean enable) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.publisher = publisher;
@@ -68,7 +74,23 @@ public class BookInfo {
         this.bookPosition = bookPosition;
         this.BookImg = bookImg;
         this.CategoryID = categoryID;
+        this.Enable = enable;
        
+    }
+
+    public BookInfo(String bookID, String bookName, String publisher, String publishDate, String quantity,
+            String description, String bookPosition, String bookImg, String categoryID, Boolean enable, String authorId) {
+        this.bookID = bookID;
+        this.bookName = bookName;
+        this.publisher = publisher;
+        this.publishDate = publishDate;
+        this.quantity = quantity;
+        this.description = description;
+        this.bookPosition = bookPosition;
+        this.BookImg = bookImg;
+        this.CategoryID = categoryID;
+        this.Enable = enable;
+       this.authorID = authorId;
     }
 
     public String getBookID() {
@@ -176,6 +198,22 @@ public class BookInfo {
 
     public void setCategoryID(String categoryID) {
         CategoryID = categoryID;
+    }
+
+    public Boolean getEnable() {
+        return Enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        Enable = enable;
+    }
+
+    public String getAuthorID() {
+        return authorID;
+    }
+
+    public void setAuthorID(String authorID) {
+        this.authorID = authorID;
     }
 
 }

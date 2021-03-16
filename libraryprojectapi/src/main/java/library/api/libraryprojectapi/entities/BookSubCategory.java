@@ -3,15 +3,19 @@ package library.api.libraryprojectapi.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+
+import library.api.libraryprojectapi.json.BookSubCateID;
 
 @Table
 @Entity(name = "TBLBOOKSUBCATEGORY")
+@IdClass(BookSubCateID.class)
 public class BookSubCategory {
     @Id
 	@Column(name = "BOOKID", length = 10, nullable = false)
     private String bookID;
-   
+    @Id
 	@Column(name = "SUBCATEGORYID", length = 10, nullable = false)
     private String subCategoryID;
 

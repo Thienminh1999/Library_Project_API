@@ -44,7 +44,6 @@ public class BookController {
   public List<Book> getBooks() {
     List<BookInfo> listBookInfo = BookService.getAllBook();
     List<Book> listBook = new ArrayList<>();
-    System.out.println("hello \n");
     for (BookInfo bookInfo : listBookInfo) {
       List<SubCategory> listSubCate = BookService.findAllSubCatagoryByIdBook(bookInfo.getBookID());
       listBook.add(new Book(bookInfo, listSubCate));
@@ -64,10 +63,15 @@ public class BookController {
   }
 
   //xóa 1 cuốn sách thông qua bookID
-  @DeleteMapping("/book")
-  public void deleteBook(@RequestBody String bookId) {
-    BookService.deleteBook(bookId);
-    //chưa hoàn thành, phải xóa ở các table khác nữa
+  // @DeleteMapping("/book")
+  // public void deleteBook(@RequestBody String bookId) {
+  //   BookService.deleteBook(bookId);
+  //   //chưa hoàn thành, phải xóa ở các table khác nữa
+  // }
+
+  @PostMapping("/disablebook")
+  public BookInfo disableBook(@RequestBody String bookId){
+    return BookService.disableBook(bookId);
   }
 
   //lấy 1 cuốn sách thông qua BookID
@@ -83,6 +87,11 @@ public class BookController {
   //tìm kiếm những cuốn sách theo tên 
   @GetMapping("/book")
   public List<Book> getBookByName(@RequestBody String bookName) {
+    return BookService.findBooksByName(bookName);
+  }
+
+  @PostMapping("/findbook")
+  public List<Book> findBookByName(@RequestBody String bookName) {
     return BookService.findBooksByName(bookName);
   }
 

@@ -39,6 +39,7 @@ public class BookServiceImp implements IBookService {
     public Book createBook(Book newBook) {
         BookRepository.save(newBook.getBook());
         List<SubCategory> listSub = newBook.getListSubCategory();
+        System.out.println("size in backend: " + listSub.size());
         String bookId = newBook.getBook().getBookID();
         for (SubCategory subCategory : listSub) {
             BookSubCategoryRepository.save(new BookSubCategory(bookId, subCategory.getSubCategoryID()));
@@ -47,7 +48,14 @@ public class BookServiceImp implements IBookService {
     }
 
     public List<BookInfo> getAllBook() {
-        return BookRepository.findAll();
+        List<BookInfo> listBooks =  BookRepository.findAll();
+        for(int i=0; i<listBooks.size(); i++){
+            if(listBooks.get(i).getEnable() == false){
+                listBooks.remove(i);
+                i--;
+            }
+        }
+        return listBooks;
     }
 
     public List<SubCategory> findAllSubCatagoryByIdBook(String idBook) {
@@ -107,5 +115,12 @@ public class BookServiceImp implements IBookService {
             listAuthor.add(author);
         }
         return listAuthor;
+    }
+
+    public BookInfo disableBook(String bookid){
+        BookInfo bookinfo = BookRepository.findById(bookid).get();
+        bookinfo.setEnable(false);
+        BookRepository.save(bookinfo);
+        return bookinfo;
     }
 }
