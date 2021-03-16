@@ -13,7 +13,7 @@ import library.api.libraryprojectapi.entities.Category;
 import library.api.libraryprojectapi.entities.SubCategory;
 import library.api.libraryprojectapi.services.templates.ICategoryService;
 import library.api.libraryprojectapi.services.templates.ISubCategoryService;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController

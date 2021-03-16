@@ -1,10 +1,5 @@
 package library.api.libraryprojectapi.models;
 
-import java.util.List;
-
-import library.api.libraryprojectapi.entities.ReviewInfo;
-import library.api.libraryprojectapi.entities.User;
-
 
 public class DashboardInfo {
     private int memberQuantity;

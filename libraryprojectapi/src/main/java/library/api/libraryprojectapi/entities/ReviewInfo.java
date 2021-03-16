@@ -82,7 +82,7 @@ public class ReviewInfo {
     }
 
     public void setCreateWhen(Date createWhen) {
-        createWhen = createWhen;
+        this.createWhen = createWhen;
     }
 
     public String getModifiedBy() {

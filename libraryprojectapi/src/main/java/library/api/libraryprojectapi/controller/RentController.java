@@ -2,8 +2,6 @@ package library.api.libraryprojectapi.controller;
 
 import java.util.List;
 
-import javax.sound.midi.SysexMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

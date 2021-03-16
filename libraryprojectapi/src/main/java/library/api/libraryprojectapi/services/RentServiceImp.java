@@ -42,26 +42,18 @@ public class RentServiceImp implements IRentService {
     private User user = null;
     private BookInfo bookinfo = null;
 
-    
-
     public void rentBooks(User user, List<BookInfo> listBookInfo) {
 
         long millis = System.currentTimeMillis();
         Date rentDate = new Date(millis);
         LocalDate returnDate = rentDate.toLocalDate().plusDays(30);
-
         String uuid = UUID.randomUUID().toString();
-
         String statusID = "RENDING";
-
         Rent rent = new Rent(uuid, rentDate, Date.valueOf(returnDate), user.getUserID(), statusID);
         rentRepository.save(rent);
-        System.out.println("list book: " + listBookInfo.size());
         for (BookInfo bookInfo : listBookInfo) {
-            System.out.println("book:" + bookInfo.getBookName());
             rentDetaiRepository.saveAndFlush(new RentDetailInfo(uuid, bookInfo.getBookID()));
         }
-
     }
 
     public List<RentDetail> getListRentDetailByUserID(String userID){

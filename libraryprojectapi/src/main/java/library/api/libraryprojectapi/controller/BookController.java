@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,18 +19,13 @@ import library.api.libraryprojectapi.json.Book;
 import library.api.libraryprojectapi.models.BookUpdateModel;
 import library.api.libraryprojectapi.services.templates.IBookService;
 
-import library.api.libraryprojectapi.services.templates.ISubCategoryService;
+
 
 @RestController
 @RequestMapping("/api/")
 public class BookController {
   @Autowired
   private IBookService BookService;
-
-  @Autowired
-  private ISubCategoryService SubCategoryService;
-
-  
 
   //thêm 1 cuốn sách mới vào database
   @PostMapping("/createBook")
@@ -61,13 +55,6 @@ public class BookController {
       bookInfo.setQuantity(bookUpdate.getQuantity());
       return BookService.updateBook(bookInfo);
   }
-
-  //xóa 1 cuốn sách thông qua bookID
-  // @DeleteMapping("/book")
-  // public void deleteBook(@RequestBody String bookId) {
-  //   BookService.deleteBook(bookId);
-  //   //chưa hoàn thành, phải xóa ở các table khác nữa
-  // }
 
   @PostMapping("/disablebook")
   public BookInfo disableBook(@RequestBody String bookId){
