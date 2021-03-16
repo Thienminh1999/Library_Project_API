@@ -15,4 +15,5 @@ public interface IRentService {
     public BookInfo getBookinfo();
     public Boolean clearBookInfo();
     public Boolean clearUserInfo();
+    public List<RentDetail> getRentDetailByEmail(String email);
 }

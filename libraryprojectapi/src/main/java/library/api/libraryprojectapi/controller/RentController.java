@@ -40,6 +40,11 @@ public class RentController {
         return rentService.getListRentDetailByUserID(userID);
     }
 
+    @PostMapping("/rentinfos")
+    public List<RentDetail> getRentDetailByEmail(@RequestBody String email) {
+        return rentService.getRentDetailByEmail(email);
+    }   
+
     // ví dụ QR code: "US-215412", "BO-521458"
     @PostMapping(value = "/qrcode")
     public Object qrcode(@RequestBody String qrcode) {

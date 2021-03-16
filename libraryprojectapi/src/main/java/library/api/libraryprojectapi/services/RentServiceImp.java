@@ -104,6 +104,11 @@ public class RentServiceImp implements IRentService {
         return true;
     }
 
+    public List<RentDetail> getRentDetailByEmail(String email){
+        User user = userRepository.findByEmail(email);
+        return getListRentDetailByUserID(user.getUserID());
+    }
+
     
 
     
