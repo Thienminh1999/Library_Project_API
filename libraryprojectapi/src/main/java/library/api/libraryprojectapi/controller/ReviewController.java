@@ -47,7 +47,7 @@ public class ReviewController {
     }
 
     //xóa bài review thông qua reviewID
-    @DeleteMapping("/review")
+    @PostMapping("/deletereview")
     public void deleteReview(@RequestBody String reviewID){
       ReviewService.deleteReview(reviewID);
     }
