@@ -123,4 +123,9 @@ public class BookServiceImp implements IBookService {
         BookRepository.save(bookinfo);
         return bookinfo;
     }
+
+    public String getAuthorNameByAuthorID(String authorid){
+        Author author = AuthorRepository.findById(authorid).get();
+        return author.getAuthorName();
+    }
 }

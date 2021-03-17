@@ -97,6 +97,11 @@ public class BookController {
     return BookService.getAuthorByBookID(bookID);
   }
 
+  @PostMapping("/getauthorname")
+  public String getAuthorNameByID(@RequestBody String authorId){
+    return BookService.getAuthorNameByAuthorID(authorId);
+  }
+
   
 
 }
