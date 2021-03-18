@@ -88,7 +88,7 @@ public class BookController {
   }
 
   @GetMapping("/bookrencent")
-  public List<BookInfo> getTop10BookRecent(){
+  public  List<Book> getTop10BookRecent(){
     return BookService.get10BookRecently();
   }
 

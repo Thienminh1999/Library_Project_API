@@ -101,8 +101,12 @@ public class BookServiceImp implements IBookService {
         return listBook;
     }
 
-    public List<BookInfo> get10BookRecently(){
-        List<BookInfo> listBook = BookRepository.findTop10BookRecent();
+    public List<Book> get10BookRecently(){
+        List<BookInfo> listBookInfo = BookRepository.findTop10BookRecent();
+        List<Book> listBook = new ArrayList<>();
+        for (BookInfo bookinfo : listBookInfo) {
+            listBook.add(new Book(bookinfo, findAllSubCatagoryByIdBook(bookinfo.getBookID())));
+        }
         return listBook;
     }
 

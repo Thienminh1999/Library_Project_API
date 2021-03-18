@@ -13,9 +13,9 @@ public interface BookRepository extends JpaRepository<BookInfo, String> {
    //@Query(value = "select * from tblBook where BookName like %?1%")
     public List<BookInfo> findAllBookByBookNameLike(String bookName);
 
-    @Query(value = "select b.BookID, b.CreatedDate, b.CreatedBy, b.ModifiedDate, b.ModifiedBy, b.BookName, b.Publisher, b.PublishDate, b.Quantity, b.Descriptions, b.BookPosition, b.BookImg, b.CategoryID, b.Enable from tblBook b, tblBookSubCategory bsc where bsc.SubCategoryID = ?1", nativeQuery = true)
+    @Query(value = "select b.BookID, b.CreatedDate, b.CreatedBy, b.ModifiedDate, b.ModifiedBy, b.BookName, b.Publisher, b.PublishDate, b.Quantity, b.Descriptions, b.BookPosition, b.BookImg, b.CategoryID, b.Enable, b.AuthorID from tblBook b, tblBookSubCategory bsc where bsc.SubCategoryID = ?1", nativeQuery = true)
     public List<BookInfo> findBookBySubCategoryID(String subCateID); 
 
-    @Query(value = "select b.BookID, b.CreatedDate, b.CreatedBy, b.ModifiedDate, b.ModifiedBy, b.BookName, b.Publisher, b.PublishDate, b.Quantity, b.Descriptions, b.BookPosition, b.BookImg, b.CategoryID, b.Enable from tblBook b order by b.CreatedDate desc", nativeQuery = true)
+    @Query(value = "select b.BookID, b.CreatedDate, b.CreatedBy, b.ModifiedDate, b.ModifiedBy, b.BookName, b.Publisher, b.PublishDate, b.Quantity, b.Descriptions, b.BookPosition, b.BookImg, b.CategoryID, b.Enable, b.AuthorID from tblBook b order by b.CreatedDate desc", nativeQuery = true)
     public List<BookInfo> findTop10BookRecent();
 }
