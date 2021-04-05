@@ -132,4 +132,9 @@ public class BookServiceImp implements IBookService {
         Author author = AuthorRepository.findById(authorid).get();
         return author.getAuthorName();
     }
+
+    public List<Author> getAllAuthor(){
+        List<Author> listAuthor = AuthorRepository.findAll();
+        return listAuthor;
+    }
 }

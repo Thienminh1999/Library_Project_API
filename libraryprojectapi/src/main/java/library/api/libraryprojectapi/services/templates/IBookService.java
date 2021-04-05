@@ -21,4 +21,5 @@ public interface IBookService {
     public List<Author> getAuthorByBookID(String id);
     public BookInfo disableBook(String bookid);
     public String getAuthorNameByAuthorID(String authorid);
+    public List<Author> getAllAuthor();
 }

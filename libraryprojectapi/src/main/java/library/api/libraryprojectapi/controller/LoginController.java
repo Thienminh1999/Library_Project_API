@@ -30,15 +30,15 @@ public class LoginController {
 
     // login sử dụng username và password trong database
     @PostMapping(value = "/checkLogin")
-    public ResponseEntity checkLogin(@RequestBody Account account, HttpServletResponse response) {
+    public Boolean checkLogin(@RequestBody Account account, HttpServletResponse response) {
 
         User result = userService.checkLogin(account.getUsername(), account.getPassword());
         if (result == null) {
             System.out.println("\nLogin fail\n");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FAIL");
+            return false;
         }
         System.out.println("\nLogin successfull\n");
-        return ResponseEntity.ok().body(result);
+        return true;
     }
 
     // login sử dụng email để gửi password cho user

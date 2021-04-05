@@ -102,6 +102,10 @@ public class BookController {
     return BookService.getAuthorNameByAuthorID(authorId);
   }
 
+  @GetMapping("/authors")
+  public List<Author> getAllAuthor(){
+    return BookService.getAllAuthor();
+  }
   
 
 }
